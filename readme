@@ -1,0 +1,5 @@
+--delete docker container
+docker ps
+docker rm -f 7c4950403718
+--install
+docker-compose up -d
