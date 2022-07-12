@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Document(collection = "bid")
 @TypeAlias("bid")
@@ -19,6 +20,8 @@ public class Bid {
 	private String city;
 	private String state;
 	private String pin;
+	@NotNull
+	@Size(min=10, max=10)
 	private String phone;
 	@Email(message = "Email is not valid", regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}")
 	@NotEmpty(message = "Email cannot be empty")

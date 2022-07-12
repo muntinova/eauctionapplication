@@ -14,6 +14,8 @@
         <module>api-gateway</module>
         <module>kafka</module>
         <module>eureka-server</module>
+        <module>feign-client</module>
+        <module>rabbit-mq</module>
     </modules>
 
     <properties>
