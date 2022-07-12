@@ -1,11 +1,13 @@
 package app.models;
 
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-
-import javax.validation.constraints.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Document(collection = "seller")
 @TypeAlias("seller")
@@ -26,7 +28,6 @@ public class Seller {
 	@NotNull
     @Size(min=10, max=10)
 	private String phone;
-	@NotNull
 	@Email
 	private String email;
 

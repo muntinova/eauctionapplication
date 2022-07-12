@@ -1,0 +1,21 @@
+server:
+  port: 8087
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+spring:
+  application:
+    name: buy-service
+  data:
+    mongodb:
+      database: testdb
+      port: 27017
+      host: localhost
+
+#logging
+logging:
+  file:
+    name: e_auction.log

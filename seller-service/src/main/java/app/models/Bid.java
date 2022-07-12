@@ -2,40 +2,39 @@ package app.models;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.TypeAlias;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotBlank;
 
-@Document(collection = "seller")
-@TypeAlias("seller")
-public class Seller {
+@Document(collection = "bid")
+@TypeAlias("bid")
+public class Bid {
 
 	@Id
 	private String id;
-	@NotNull
-    @Size(min=5, max=30)
 	private String firstName;
-	@NotNull
-    @Size(min=3, max=25)
 	private String lastName;
 	private String address;
 	private String city;
 	private String state;
 	private String pin;
-	@NotNull
-    @Size(min=10, max=10)
 	private String phone;
-	@NotNull
-	@Email
+	@NotBlank
+	@Indexed(unique = true)
 	private String email;
+	private String productId;
+	private double bidAmount;
 
+	public Bid() {
+		
+	}
 
+	public Bid(String id, String firstName, String lastName, String address, String city, String state,
+               String pin, String phone, String email, String productId, double bidAmount) {
 
-	public Seller(String firstName, String lastName, String address, String city, String state,
-                  String pin, String phone, String email) {
-
-	
+		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
@@ -44,8 +43,11 @@ public class Seller {
 		this.pin = pin;
 		this.phone = phone;
 		this.email = email;
+		this.productId = productId;
+		this.bidAmount = bidAmount;
 
 	}
+
 
 
 	public String getId() {
@@ -53,9 +55,11 @@ public class Seller {
 	}
 
 
+
 	public void setId(String id) {
 		this.id = id;
 	}
+
 
 
 	public String getFirstName() {
@@ -149,6 +153,29 @@ public class Seller {
 		this.email = email;
 	}
 
+
+
+	public String getProductId() {
+		return productId;
+	}
+
+
+
+	public void setProductId(String productId) {
+		this.productId = productId;
+	}
+
+
+
+	public double getBidAmount() {
+		return bidAmount;
+	}
+
+
+
+	public void setBidAmount(double bidAmount) {
+		this.bidAmount = bidAmount;
+	}
 
 
 }

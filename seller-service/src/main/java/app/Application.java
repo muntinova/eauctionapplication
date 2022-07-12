@@ -30,10 +30,10 @@ public class Application implements CommandLineRunner {
 		//todo: add 5 students in the database.
 
 
-		Bid d = new Bid("T","g");
+		/*Bid d = new Bid("T","g");
 		repository1.save(d);
-		Bid d1 = new Bid("D","g");
-		repository1.save(d1);
+		Bid d1 = new Bid("D","g");*/
+		//repository1.save(d1);
 		Student student = new Student(101,"Tolganay","8707-233-22-44","tolganay@gmail.com");
 		Address address =new Address("Main Street","Fairfiled","52556");
 		student.setAddress(address);
