@@ -6,12 +6,24 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: customer
-          uri: lb://CUSTOMER
+        ## USER SERVICE
+        - id: buyer
+          uri: lb://buyer
           predicates:
-            - Path=/api/v1/customer/**
-eureka:
+            - Path=/buyer/**
+          filters:
+            - StripPrefix=1
+        - id: seller
+          uri: lb://seller
+          predicates:
+            - Path=/seller/**
+          filters:
+            - StripPrefix=1
+
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
+
+#http://localhost:8084/buyer/e-auction/api/v1/users
+
 
