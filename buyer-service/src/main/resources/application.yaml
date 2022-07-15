@@ -11,9 +11,10 @@ spring:
     name: buy-service
   data:
     mongodb:
-      database: testdb
-      port: 27017
-      host: localhost
+      database: test
+      #port: 27017
+      #host: localhost
+      uri: mongodb+srv://moon:moon@cluster0.fn6vq.mongodb.net/?retryWrites=true&w=majority
 
 #logging
 logging:
